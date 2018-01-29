@@ -1,6 +1,5 @@
 package com.api.jlabs.kafka.endpoint;
 
-import com.api.jlabs.kafka.services.KafkaConsumer;
 import com.api.jlabs.kafka.services.KafkaProducer;
 import com.api.jlabs.kafka.services.MessageStore;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class KafkaRestController {
 
-    @Autowired
     private KafkaProducer kafkaProducer;
+    private MessageStore messageStore;
 
     @Autowired
-    private MessageStore messageStore;
+    public KafkaRestController(KafkaProducer kafkaProducer, MessageStore messageStore) {
+        this.kafkaProducer = kafkaProducer;
+        this.messageStore = messageStore;
+    }
 
     @GetMapping(value="/producer")
     public String producer(@RequestParam("data") String data){
