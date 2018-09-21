@@ -1,6 +1,9 @@
 # kafka-rest
 Rest API for Kafka producer/consumer
 
+localhost:8080/producer/{<var>} - once the above endpoint is hit value var gets pushed to kafka topic 
+  and consumer will recieve it automatically
+
 A samle Application for kafka with Springboot
 
 
