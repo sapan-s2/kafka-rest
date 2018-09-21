@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created by smita on 12/25/17.
@@ -22,7 +23,7 @@ public class MessageStore {
     public String toString(){
 
         StringBuffer stringBuffer = new StringBuffer();
-        messageStored.forEach( messageStored -> stringBuffer.append(messageStored).append("<br/>"));
+        messageStored.forEach( messageStored -> stringBuffer.append(messageStored));
         return stringBuffer.toString();
     }
 

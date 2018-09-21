@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by smita on 12/25/17.
+ * Created by sjain on 12/25/17.
  */
 
 @Component
@@ -23,8 +23,7 @@ public class KafkaConsumer {
 
     @KafkaListener(topics ="${jlabs.kafka.topic}",group = "${spring.kafka.consumer.group-id}")
         public void processMessage(String content){
-
-        LOGGER.info("received messages : ", content);
+        LOGGER.info("received messages : {} ", content);
         messageStore.put(content);
 
         }
